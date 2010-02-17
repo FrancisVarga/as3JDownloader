@@ -1,8 +1,9 @@
 package cc.varga.api.jdownloader {
+	import flash.events.EventDispatcher;
+	
 	import mx.collections.ArrayCollection;
 	import mx.rpc.events.FaultEvent;
 	import mx.rpc.events.ResultEvent;
-	import flash.events.EventDispatcher;
 	import mx.rpc.http.mxml.HTTPService;
 
 	/**
@@ -12,7 +13,8 @@ package cc.varga.api.jdownloader {
 
 		public static var HOST : String = "http://localhost:";
 		public static var PORT : String = "10025";
-
+		
+		[Event(name="result_event", type="cc.varga.api.jdownloader.JDownloaderEvent")]
 		public function JDownloader() {
 			super();
 		}
