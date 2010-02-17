@@ -1,4 +1,4 @@
-package cc.varga.jdownloader.api.route {
+package cc.varga.api.jdownloader.route {
 
 	/**
 	 * @author Francis Varga

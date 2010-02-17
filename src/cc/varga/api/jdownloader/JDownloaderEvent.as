@@ -1,4 +1,4 @@
-package cc.varga.jdownloader.api {
+package cc.varga.api.jdownloader {
 	import flash.events.Event;
 
 	/**

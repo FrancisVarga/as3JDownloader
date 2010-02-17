@@ -1,6 +1,5 @@
-package cc.varga.jdownloader.api.route {
-	
-	import cc.varga.jdownloader.api.route.*;
+package cc.varga.api.jdownloader.route {
+	import cc.varga.api.jdownloader.route.*;
 
 	/**
 	 * @author Francis Varga

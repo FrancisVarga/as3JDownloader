@@ -1,4 +1,4 @@
-package cc.varga.jdownloader.api {
+package cc.varga.api.jdownloader {
 	import mx.collections.ArrayCollection;
 	import mx.rpc.events.FaultEvent;
 	import mx.rpc.events.ResultEvent;
