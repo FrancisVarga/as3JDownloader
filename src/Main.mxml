@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	creationComplete="onAppComplete(event)">
+
+	<mx:Script>
+		<![CDATA[
+			import cc.varga.jdownloader.api.JDownloaderCommand;
+			import cc.varga.jdownloader.api.JDownloader;
+			import mx.events.FlexEvent;
+			
+			private function onAppComplete(event : FlexEvent):void{
+				trace("JDownloader API Create");
+				
+				afterAppComplete();
+			}
+			
+			private function afterAppComplete():void{
+				var jdownloader : JDownloader = new JDownloader();
+				var command : JDownloaderCommand = new  JDownloaderCommand();
+				//command.
+				jdownloader.sendCommand(command);
+			}
+			
+		]]>
+	</mx:Script>
+
+</mx:Application>
