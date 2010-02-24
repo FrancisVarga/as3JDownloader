@@ -25,7 +25,6 @@ Copyright (c) 2010 Francis Varga
  OTHER DEALINGS IN THE SOFTWARE.
 
 #Instructions
--------------
 
 This is a ActionScript3 small lib for the [JDownloader](http://jdownloader.org/)...
 
