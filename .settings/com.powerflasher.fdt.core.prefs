@@ -1,4 +1,7 @@
-#Tue Feb 23 11:56:08 CET 2010
+#Wed Feb 24 07:28:20 CET 2010
 com.powerflasher.fdt.core.DefaultOutputFolder=bin-debug
-com.powerflasher.fdt.core.LanguageType=Flex_3_SDK_0_for_FP_10
+com.powerflasher.fdt.core.Language=AS3
+com.powerflasher.fdt.core.LanguageType=Flex_3_SDK_0_with_AIR
+com.powerflasher.fdt.core.useProjectFormatterSettings=false
+com.powerflasher.fdt.core.useProjectProblems=false
 eclipse.preferences.version=1

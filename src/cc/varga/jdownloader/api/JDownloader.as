@@ -1,4 +1,6 @@
 package cc.varga.jdownloader.api {
+
+	import cc.varga.jdownloader.api.commands.JDownloaderCommand;
 	import mx.collections.ArrayCollection;
 	import mx.rpc.events.FaultEvent;
 	import mx.rpc.events.ResultEvent;
@@ -12,20 +14,30 @@ package cc.varga.jdownloader.api {
 	 */
 	public class JDownloader extends EventDispatcher {
 
-		public static var HOST : String = "http://localhost:";
-		public static var PORT : String = "10025";
+		private var _faultFunction : Function = null;
+		private var _resultFunction : Function = null;
 
 		public function JDownloader () {
 			super();
 		}
 
 		public function sendCommand (call : JDownloaderCommand) : void {
-			var service : HTTPService = new HTTPService(URL + call.commandURL);
-			service.addEventListener(ResultEvent.RESULT, onResult);
-			service.addEventListener(FaultEvent.FAULT, onFault);
-
+			var service : HTTPService = new HTTPService(call.commandURL);
+			service.useProxy = false;
+			service.url = call.commandURL;
+			
+			if(_resultFunction) service.addEventListener(ResultEvent.RESULT, _resultFunction);
+			else service.addEventListener(ResultEvent.RESULT, this.onResult);
+			
+			if(_faultFunction) service.addEventListener(FaultEvent.FAULT, _faultFunction);
+			else  service.addEventListener(ResultEvent.RESULT, this.onFault);
+			
 			service.send();
 		}
+
+		public function set onFaultFunction (value : Function) : void { 	_faultFunction = value; 	}
+
+		public function set onResultFunction (value : Function) : void { _resultFunction = value; 	}
 
 		private function onFault (event : FaultEvent) : void {
 			dispatchEvent(new JDownloaderEvent(JDownloaderEvent.FAULT));
@@ -34,14 +46,13 @@ package cc.varga.jdownloader.api {
 		private function onResult (event : ResultEvent) : void {
 			
 			if(event.result is ArrayCollection) {
-				dispatchEvent(new JDownloaderEvent(JDownloaderEvent.RESULT));
+				
 			} else if (event.result is Object) {
 				
 			}
+			
+			dispatchEvent(new JDownloaderEvent(JDownloaderEvent.RESULT));
 		}
 
-		private function get URL () : String {
-			return HOST + PORT;
-		}
 	}
 }

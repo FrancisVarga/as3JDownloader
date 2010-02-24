@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" 
 	creationComplete="onAppComplete(event)">
 
 	<mx:Script>
 		<![CDATA[
-			import cc.varga.jdownloader.api.JDownloaderCommand;
+			import cc.varga.jdownloader.api.commands.GetDownloadStatus;
+			import mx.rpc.events.ResultEvent;
+			import mx.rpc.events.FaultEvent;
+			import cc.varga.jdownloader.api.commands.GetConfig;
+			import cc.varga.jdownloader.api.commands.JDownloaderCommand;
 			import cc.varga.jdownloader.api.JDownloader;
 			import mx.events.FlexEvent;
-			
+					
 			private function onAppComplete(event : FlexEvent):void{
 				trace("JDownloader API Create");
 				
@@ -16,12 +20,22 @@
 			
 			private function afterAppComplete():void{
 				var jdownloader : JDownloader = new JDownloader();
-				var command : JDownloaderCommand = new  JDownloaderCommand();
-				//command.
+				jdownloader.onFaultFunction = fault;
+				jdownloader.onResultFunction = result;
+				var command : JDownloaderCommand = new  GetDownloadStatus();				
 				jdownloader.sendCommand(command);
+				
+			}
+			
+			private function fault(event :FaultEvent):void{
+				
+			}
+			
+			private function result(event : ResultEvent):void{
+				trace("Result:" + event.result);
 			}
 			
 		]]>
 	</mx:Script>
 
-</mx:Application>
+</mx:WindowedApplication>
