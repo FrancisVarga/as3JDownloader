@@ -27,6 +27,6 @@ Copyright (c) 2010 Francis Varga
 #Instructions
 -------------
 
-This is a ActionScript3 small API for the [JDownloader](http://jdownloader.org/)...
+This is a ActionScript3 small lib for the [JDownloader](http://jdownloader.org/)...
 
 [Download JDownloader](http://jdownloader.org/download/index)
