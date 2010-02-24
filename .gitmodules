@@ -1,0 +1,3 @@
+[submodule "libs/as3Core"]
+	path = libs/as3Core
+	url = git://github.com/sixones/as3corelib.git

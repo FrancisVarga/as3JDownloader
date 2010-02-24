@@ -26,10 +26,10 @@ package cc.varga.jdownloader.api {
 			service.useProxy = false;
 			service.url = call.commandURL;
 			
-			if(_resultFunction) service.addEventListener(ResultEvent.RESULT, _resultFunction);
+			if(_resultFunction != null) service.addEventListener(ResultEvent.RESULT, _resultFunction);
 			else service.addEventListener(ResultEvent.RESULT, this.onResult);
 			
-			if(_faultFunction) service.addEventListener(FaultEvent.FAULT, _faultFunction);
+			if(_faultFunction != null) service.addEventListener(FaultEvent.FAULT, _faultFunction);
 			else  service.addEventListener(ResultEvent.RESULT, this.onFault);
 			
 			service.send();

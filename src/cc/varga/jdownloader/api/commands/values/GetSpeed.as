@@ -1,4 +1,5 @@
-package cc.varga.jdownloader.api.commands {
+package cc.varga.jdownloader.api.commands.values {
+	import cc.varga.jdownloader.api.commands.JDownloaderCommand;
 	
 	/**
 	 * @author Francis Varga

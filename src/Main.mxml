@@ -4,35 +4,52 @@
 
 	<mx:Script>
 		<![CDATA[
-			import cc.varga.jdownloader.api.commands.GetDownloadStatus;
 			import mx.rpc.events.ResultEvent;
+			import cc.varga.jdownloader.api.commands.actions.AddLinks;
+			import cc.varga.jdownloader.api.commands.values.GetAllDownloads;
+			import cc.varga.jdownloader.api.commands.values.GetDownloadStatus;
+			import com.adobe.net.URI;
+			import mx.utils.URLUtil;
+
 			import mx.rpc.events.FaultEvent;
-			import cc.varga.jdownloader.api.commands.GetConfig;
 			import cc.varga.jdownloader.api.commands.JDownloaderCommand;
 			import cc.varga.jdownloader.api.JDownloader;
 			import mx.events.FlexEvent;
 					
 			private function onAppComplete(event : FlexEvent):void{
-				trace("JDownloader API Create");
-				
+			
+				trace("JDownloader API Create");				
 				afterAppComplete();
+			
 			}
 			
 			private function afterAppComplete():void{
+				
 				var jdownloader : JDownloader = new JDownloader();
 				jdownloader.onFaultFunction = fault;
 				jdownloader.onResultFunction = result;
 				var command : JDownloaderCommand = new  GetDownloadStatus();				
 				jdownloader.sendCommand(command);
 				
+				var command1 : JDownloaderCommand = new GetAllDownloads();
+				jdownloader.sendCommand(command1);
+				
+				var command2 : JDownloaderCommand = new AddLinks([URI.escapeChars("http://www.youtube.com/watch?v=_-afioLMcEc&feature=youtube_gdata"), 
+																									URI.escapeChars("http://www.youtube.com/watch?v=tRqjn4bxN3s&feature=youtube_gdata")], 
+																									0);
+				jdownloader.sendCommand(command2);
+				
 			}
 			
 			private function fault(event :FaultEvent):void{
 				
+
 			}
 			
 			private function result(event : ResultEvent):void{
+
 				trace("Result:" + event.result);
+
 			}
 			
 		]]>
