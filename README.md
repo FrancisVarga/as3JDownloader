@@ -1,5 +1,5 @@
 
-![](http://jdownloader.org/_media/knowledge/wiki/jdownloader.png?cache=)
+![](http://screenshots.en.softonic.com/en/scrn/74000/74114/2t_jdownloader_thumb.jpg)
 
 #License
 ------------------
